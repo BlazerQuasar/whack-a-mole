@@ -3,23 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whack-a-Mole</title>
+    <title>欢乐打地鼠</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>Whack-a-Mole</h1>
+        <h1>欢乐打地鼠</h1>
+        
         <div id="login-section">
-            <input type="text" id="username" placeholder="Enter Username">
-            <button onclick="login()">Login</button>
+            <h2>欢迎来玩打地鼠游戏！</h2>
+            <p class="game-description">打中地鼠得1分，但要小心不要打到小狐狸哦，打中小狐狸会扣2分！</p>
+            <div class="character-display">
+                <div>
+                    <span class="character">🐹</span>
+                    <p>地鼠: +1分</p>
+                </div>
+                <div>
+                    <span class="character">🦊</span>
+                    <p>狐狸: -2分</p>
+                </div>
+            </div>
+            <input type="text" id="username" placeholder="请输入你的用户名">
+            <button onclick="login()">开始游戏</button>
         </div>
+        
         <div id="game-section" style="display: none;">
-            <p>Score: <span id="score">0</span></p>
-            <p>Time: <span id="timer">30</span>s</p>
-            <button onclick="startGame()">Start Game</button>
+            <div class="stats">
+                <p>得分: <span id="score">0</span></p>
+                <p>时间: <span id="timer">30</span>秒</p>
+            </div>
+            
+            <button id="start-button" onclick="startGame()">开始游戏</button>
+            
             <div class="grid" id="grid"></div>
+            
+            <div class="game-controls">
+                <button onclick="resetGame()">重新开始</button>
+                <button onclick="showHighscores()">排行榜</button>
+            </div>
+        </div>
+        
+        <div id="game-over" style="display: none;">
+            <h2>游戏结束！</h2>
+            <p>你的最终得分: <span id="final-score">0</span></p>
+            <button onclick="resetGame()">再玩一次</button>
         </div>
     </div>
+    
+    <footer>
+        <p>© 2023 欢乐打地鼠 - 一个有趣的网页游戏</p>
+    </footer>
+    
     <script src="script.js"></script>
 </body>
 </html>
